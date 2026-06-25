@@ -107,15 +107,14 @@ function RegistrationList() {
         >
           <thead>
             <tr>
-  <th>User Name</th>
-  <th>Tickets</th>
-  <th>Contact</th>
-  <th>Event Name</th>
-  <th>Room</th>
-  <th>Event Date</th>
-  <th>Payment Status</th>
-  <th>Actions</th>
-</tr>
+              <th>User Name</th>
+              <th>Tickets</th>
+              <th>Contact</th>
+              <th>Event Name</th>
+              <th>Event Date</th>
+              <th>Payment Status</th>
+              <th>Actions</th>
+            </tr>
           </thead>
 
           <tbody>
@@ -131,20 +130,16 @@ function RegistrationList() {
                   <td>{registration.contact}</td>
 
                   <td>
-  {registration.nameOfEvent}
-</td>
+                    {registration.nameOfEvent}
+                  </td>
 
-<td>
-  {registration.room}
-</td>
-
-<td>
-  {registration.eventDate
-    ? new Date(
-        registration.eventDate
-      ).toLocaleDateString()
-    : ""}
-</td>
+                  <td>
+                    {registration.eventDate
+                      ? new Date(
+                          registration.eventDate
+                        ).toLocaleDateString()
+                      : ""}
+                  </td>
 
                   <td>
                     {registration.paymentStatus}
