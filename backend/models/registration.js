@@ -9,22 +9,27 @@ const registrationSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+
     contact: {
         type: String,
         required: true
     },
+
     nameOfEvent: {
         type: String,
         required: true
     },
+
     eventDate: {
         type: Date,
         required: true
     },
+
     room: {
         type: String,
         required: true
     },
+
     paymentStatus: {
         type: String,
         required: true

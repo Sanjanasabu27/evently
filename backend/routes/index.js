@@ -1,8 +1,12 @@
 var express = require('express');
-const Registration = require('../model/registration');
-const Event = require('../model/event');
+const Registration = require('../models/registration');
+const Event = require('../models/event');
+const User = require("../models/user");
+const verifyToken = require("../middleware/authMiddleware");
+const adminOnly = require("../middleware/adminMiddleware");
+
+
 var router = express.Router();
-module.exports = router;
 
 /* Home Page */
 router.get('/', function(req, res, next) {
@@ -13,6 +17,9 @@ router.get('/', function(req, res, next) {
 router.post('/registrations', async (req, res) => {
     try {
         console.log(req.body);
+        console.log("Event:", req.body.nameOfEvent);
+console.log("User ID:", req.body.userId);
+console.log("Email:", req.body.email);
         const event = await Event.findOne({
   eventName: req.body.nameOfEvent
 });
@@ -54,33 +61,37 @@ const requestedSeats =
 
 }
 
-        const registration = new Registration({
-    userName: req.body.userName,
-    ticketCount: req.body.ticketCount,
-    contact: req.body.contact,
-    nameOfEvent: req.body.nameOfEvent,
-    room: event.room,
-    eventDate: req.body.eventDate,
-    paymentStatus: req.body.paymentStatus
+const registration = new Registration({
+  userName: req.body.userName,
+  ticketCount: req.body.ticketCount,
+  contact: req.body.contact,
+  nameOfEvent: req.body.nameOfEvent,
+  room: event.room,      // Required
+  eventDate: req.body.eventDate,
+  paymentStatus: req.body.paymentStatus
 });
+    console.log(registration);
 
-        await registration.save();
-
+await registration.save();
         res.status(201).json({
             message: "Registration Added Successfully",
             registration
         });
 
     } catch (err) {
-        res.status(500).json({
-            error: err.message
-        });
-    }
+    console.error("===== REGISTRATION ERROR =====");
+    console.error(err);
+    console.error("==============================");
+
+    res.status(500).json({
+        error: err.message
+    });
+}
 });
 
 /* Get All Registrations */
-router.get('/registrations', async (req, res) => {
-    try {
+router.get("/registrations", async (req, res) => {    
+  try {
         const registrations = await Registration.find();
         res.json(registrations);
     } catch (err) {
@@ -89,7 +100,19 @@ router.get('/registrations', async (req, res) => {
         });
     }
 });
+router.get("/registrations/user/:userName", async (req, res) => {
+  try {
+    const registrations = await Registration.find({
+      userName: req.params.userName
+    });
 
+    res.json(registrations);
+  } catch (err) {
+    res.status(500).json({
+      error: err.message
+    });
+  }
+});
 /* Get Registration By ID */
 router.get('/registrations/:id', async (req, res) => {
     try {
@@ -184,13 +207,14 @@ router.put('/registrations/:id', async (req, res) => {
         req.params.id,
         {
           userName: req.body.userName,
-          ticketCount: req.body.ticketCount,
-          contact: req.body.contact,
-          nameOfEvent: req.body.nameOfEvent,
-          room: event.room,
-          eventDate: req.body.eventDate,
-          paymentStatus:
-            req.body.paymentStatus
+    email: req.body.email,
+    userId: req.body.userId,
+    ticketCount: req.body.ticketCount,
+    contact: req.body.contact,
+    nameOfEvent: req.body.nameOfEvent,
+    room: event.room,
+    eventDate: req.body.eventDate,
+    paymentStatus: req.body.paymentStatus
         },
         { new: true }
       );
@@ -242,7 +266,7 @@ router.get('/registrations/search/:text', async (req, res) => {
         });
     }
 });
-router.get("/addevents", async (req, res) => {
+router.get("/addevents",verifyToken,adminOnly,async (req, res) => {
 
   await Event.create({
   eventName: "Coding Contest",
@@ -333,4 +357,78 @@ router.get("/events", async (req, res) => {
     });
   }
 });
+router.get("/users", async (req, res) => {
+  try {
+    const users = await User.find().select("-password");
+    res.json(users);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+router.post("/events", async (req, res) => {
+  try {
+    const event = new Event(req.body);
+
+    await event.save();
+
+    res.status(201).json(event);
+
+  } catch (error) {
+    res.status(500).json({
+      message: error.message
+    });
+  }
+});
+router.get("/events/:id", async (req, res) => {
+
+  const event =
+    await Event.findById(req.params.id);
+
+  res.json(event);
+
+});
+router.put("/events/:id", async (req, res) => {
+
+  try {
+
+    const event =
+      await Event.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        { new: true }
+      );
+
+    res.json(event);
+
+  } catch (error) {
+
+    res.status(500).json({
+      message: error.message
+    });
+
+  }
+
+});
+router.delete("/events/:id", async (req, res) => {
+
+  try {
+
+    await Event.findByIdAndDelete(
+      req.params.id
+    );
+
+    res.json({
+      message: "Event deleted"
+    });
+
+  } catch (error) {
+
+    res.status(500).json({
+      message: error.message
+    });
+
+  }
+
+});
+
 module.exports = router;

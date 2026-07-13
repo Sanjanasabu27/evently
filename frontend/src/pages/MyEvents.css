@@ -1,0 +1,46 @@
+.event-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+    gap:25px;
+    margin-top:25px;
+}
+
+.event-card{
+    background:#fff;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    transition:.3s;
+    border-left:6px solid #2563eb;
+}
+
+.event-card:hover{
+    transform:translateY(-5px);
+}
+
+.event-card h2{
+    margin-bottom:15px;
+    color:#1e3a8a;
+}
+
+.event-card p{
+    margin:8px 0;
+    color:#444;
+}
+
+.status{
+    display:inline-block;
+    margin-top:15px;
+    padding:8px 15px;
+    border-radius:20px;
+    color:#fff;
+    font-weight:bold;
+}
+
+.status.Paid{
+    background:#22c55e;
+}
+
+.status.Pending{
+    background:#f59e0b;
+}

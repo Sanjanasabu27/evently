@@ -1,0 +1,43 @@
+.event-card {
+  width: 340px;
+  padding: 25px;
+
+  background: rgba(255,255,255,0.08);
+
+  border-radius: 20px;
+
+  backdrop-filter: blur(10px);
+
+  transition: 0.3s;
+
+  text-align: left;
+}
+
+.event-card:hover {
+  transform: translateY(-10px);
+}
+
+.event-card h3 {
+  margin-bottom: 25px;
+}
+
+.event-card ul {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.event-card button {
+  margin-top: 30px;
+
+  width: 100%;
+
+  padding: 12px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-weight: bold;
+}

@@ -1,0 +1,410 @@
+/* ===========================
+   REGISTRATION PAGE
+=========================== */
+
+.registration-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding-top: 130px;   /* pushes below navbar */
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 40px;
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.card {
+  width: 100%;
+  max-width: 850px;
+
+  margin: 0 auto;
+
+  padding: 50px;
+
+  border-radius: 30px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(90, 24, 154, 0.18),
+    rgba(36, 0, 70, 0.28)
+  );
+
+  backdrop-filter: blur(25px);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, .45),
+    0 0 40px rgba(123, 44, 191, .15);
+
+  transition: .35s ease;
+}
+
+.card:hover {
+
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.55),
+    0 0 50px rgba(123,44,191,.25);
+
+}
+
+.card h2 {
+
+  text-align: center;
+
+  font-size: 46px;
+
+  font-weight: 800;
+
+  color: white;
+
+  margin-bottom: 45px;
+
+  letter-spacing: -.5px;
+
+}
+
+/* ===========================
+   FORM
+=========================== */
+
+form {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+
+}
+
+form > div {
+
+  display: flex;
+
+  flex-direction: column;
+
+}
+
+label {
+
+  color: #dcdcdc;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 10px;
+
+  text-transform: uppercase;
+
+}
+
+/* Remove old <br> spacing */
+
+br {
+
+  display: none;
+
+}
+
+/* ===========================
+   INPUTS
+=========================== */
+
+input,
+select {
+
+  width: 100%;
+
+  height: 58px;
+
+  padding: 0 18px;
+
+  border-radius: 15px;
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  background: rgba(255,255,255,.08);
+
+  color: white;
+
+  font-size: 16px;
+
+  outline: none;
+
+  transition: .3s;
+
+}
+
+input::placeholder {
+
+  color: #c8c8c8;
+
+}
+
+input:focus,
+select:focus {
+
+  border-color: #4f7cff;
+
+  box-shadow: 0 0 18px rgba(67,97,238,.45);
+
+  transform: translateY(-2px);
+
+}
+
+select option {
+
+  color: black;
+
+}
+
+/* ===========================
+   DATE PICKER
+=========================== */
+
+.react-datepicker-wrapper {
+
+  width: 100%;
+
+}
+
+.react-datepicker__input-container input {
+
+  width: 100%;
+
+}
+
+.react-datepicker {
+
+  background: #24143b;
+
+  border: none;
+
+  border-radius: 18px;
+
+}
+
+.react-datepicker__header {
+
+  background: #34195d;
+
+  border: none;
+
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name,
+.react-datepicker__day {
+
+  color: white;
+
+}
+
+.react-datepicker__day:hover {
+
+  background: #4361ee;
+
+  border-radius: 50%;
+
+}
+
+.react-datepicker__day--selected {
+
+  background: #4361ee;
+
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+button {
+
+  margin-top: 15px;
+
+  width: 100%;
+
+  height: 60px;
+
+  border: none;
+
+  border-radius: 15px;
+
+  background: linear-gradient(
+    90deg,
+    #4361ee,
+    #5d7cff
+  );
+
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: .35s;
+
+}
+
+button:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 18px 30px rgba(67,97,238,.45);
+
+}
+
+/* ===========================
+   SEAT CARD
+=========================== */
+
+.seat-card {
+
+  margin-top: 15px;
+
+  padding: 20px;
+
+  border-radius: 18px;
+
+  background: linear-gradient(
+    135deg,
+    #4f46e5,
+    #7b2cbf
+  );
+
+  text-align: center;
+
+  box-shadow: 0 10px 30px rgba(79,70,229,.4);
+
+}
+
+.seat-card h3 {
+
+  margin-bottom: 8px;
+
+  color: white;
+
+}
+
+.seat-card p {
+
+  font-size: 30px;
+
+  font-weight: bold;
+
+  color: white;
+
+}
+
+/* ===========================
+   MODAL
+=========================== */
+
+.modal-overlay {
+
+  position: fixed;
+
+  inset: 0;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  background: rgba(0,0,0,.65);
+
+  backdrop-filter: blur(8px);
+
+  z-index: 999;
+
+}
+
+.modal-box {
+
+  width: 420px;
+
+  padding: 35px;
+
+  border-radius: 20px;
+
+  background: #24143b;
+
+  color: white;
+
+  text-align: center;
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  animation: popup .3s ease;
+
+}
+
+@keyframes popup {
+
+  from {
+
+    opacity: 0;
+
+    transform: scale(.8);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: scale(1);
+
+  }
+
+}
+
+.ok-btn {
+
+  margin-top: 20px;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+.card{
+
+padding:30px 25px;
+
+}
+
+.card h2{
+
+font-size:34px;
+
+}
+
+input,
+select,
+button{
+
+height:55px;
+
+font-size:15px;
+
+}
+
+}

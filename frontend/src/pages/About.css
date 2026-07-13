@@ -1,0 +1,228 @@
+/* ===== ABOUT PAGE ===== */
+
+.about-page {
+  background: linear-gradient(135deg, #1f0f2a, #361b4b, #6b2e81);
+  color: white;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===== BANNER ===== */
+
+.about-banner {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.about-banner h1 {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.about-banner p {
+  max-width: 700px;
+  margin: auto;
+  font-size: 1.1rem;
+  color: #d1d5db;
+  line-height: 1.8;
+}
+
+/* ===== JOURNEY SECTION ===== */
+
+.journey-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding: 80px 10%;
+  flex-wrap: wrap;
+}
+
+.journey-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.journey-text h2 {
+  font-size: 2.3rem;
+  margin-bottom: 20px;
+}
+
+.journey-text p {
+  color: #d1d5db;
+  line-height: 1.9;
+  font-size: 1rem;
+}
+
+.journey-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.journey-image img {
+  width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+  transition: 0.4s;
+}
+
+.journey-image img:hover {
+  transform: scale(1.03);
+}
+
+/* ===== TIMELINE ===== */
+
+.timeline-section {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.timeline-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.step {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 30px;
+  transition: 0.4s;
+}
+
+.step:hover {
+  transform: translateY(-10px);
+}
+
+.step span {
+  display: inline-flex;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background: #b85cf6;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.step h3 {
+  margin-bottom: 10px;
+}
+
+/* ===== STATS ===== */
+
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  padding: 80px 10%;
+}
+
+.stat-card {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 35px;
+  text-align: center;
+  transition: 0.4s;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+}
+
+.stat-card h2 {
+  font-size: 2.8rem;
+  color: #a78bfa;
+  margin-bottom: 10px;
+}
+
+/* ===== FEATURES ===== */
+
+.features-section {
+  padding: 80px 10%;
+}
+
+.features-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.feature-card {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(15px);
+  padding: 30px;
+  border-radius: 20px;
+  transition: 0.4s;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(139,92,246,0.3);
+}
+
+.feature-card h3 {
+  margin-bottom: 15px;
+  color: #c4b5fd;
+}
+
+.feature-card p {
+  color: #d1d5db;
+  line-height: 1.7;
+}
+
+/* ===== VISION ===== */
+
+.vision-section {
+  padding: 100px 10%;
+  text-align: center;
+}
+
+.vision-section h2 {
+  font-size: 2.8rem;
+  margin-bottom: 25px;
+}
+
+.vision-section p {
+  max-width: 850px;
+  margin: auto;
+  line-height: 2;
+  color: #d1d5db;
+  font-size: 1.05rem;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+  .about-banner h1 {
+    font-size: 2.4rem;
+  }
+
+  .journey-section {
+    padding: 60px 20px;
+  }
+
+  .timeline-section,
+  .features-section,
+  .vision-section,
+  .stats-section {
+    padding: 60px 20px;
+  }
+}

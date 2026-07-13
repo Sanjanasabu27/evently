@@ -1,0 +1,267 @@
+/* ===== CONTACT PAGE ===== */
+
+.contact-page {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #341a46,
+    #3d1b4b,
+    #582e81
+  );
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===== HERO ===== */
+
+.contact-hero {
+  text-align: center;
+  padding: 100px 20px 80px;
+}
+
+.contact-hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.contact-hero p {
+  max-width: 750px;
+  margin: auto;
+  font-size: 1.1rem;
+  color: #d1d5db;
+  line-height: 1.8;
+}
+
+/* ===== HELPDESK CARDS ===== */
+
+.helpdesk-grid {
+  width: 90%;
+  max-width: 1300px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  padding-bottom: 80px;
+}
+
+.help-card {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 24px;
+  padding: 30px;
+  transition: 0.4s ease;
+}
+
+.help-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 35px rgba(139,92,246,0.35);
+}
+
+.help-card h3 {
+  margin-bottom: 15px;
+  color: #7358dd;
+}
+
+.help-card p {
+  color: #ffffff;
+  line-height: 1.7;
+}
+
+/* ===== CONTACT SECTION ===== */
+
+.contact-container {
+  width: 90%;
+  max-width: 1300px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  padding-bottom: 80px;
+}
+
+/* ===== FORM ===== */
+
+.contact-form {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px);
+  border-radius: 25px;
+  padding: 40px;
+}
+
+.contact-form h2 {
+  margin-bottom: 25px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 15px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.12);
+  color: white;
+  font-size: 15px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #cbd5e1;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    #290d69,
+    #2124ec
+  );
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  transform: scale(1.02);
+}
+
+/* ===== CONTACT INFO ===== */
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-info h2 {
+  margin-bottom: 10px;
+}
+
+.info-box {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px);
+  border-radius: 20px;
+  padding: 25px;
+  transition: 0.3s;
+}
+
+.info-box:hover {
+  transform: translateX(8px);
+}
+
+.info-box h4 {
+  margin-bottom: 10px;
+  color: #8b74e3;
+}
+
+.info-box p {
+  color: #ffffff;
+  line-height: 1.7;
+}
+
+/* ===== RESPONSE BANNER ===== */
+
+.support-banner {
+  width: 90%;
+  max-width: 1300px;
+  margin: auto;
+  text-align: center;
+  padding: 60px 30px;
+  border-radius: 30px;
+  background: linear-gradient(
+    135deg,
+    #1d0c42,
+    #4f46e5
+  );
+  margin-bottom: 80px;
+}
+
+.support-banner h2 {
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+.support-banner p {
+  color: rgba(255,255,255,0.9);
+}
+
+/* ===== FAQ ===== */
+
+.faq-section {
+  width: 90%;
+  max-width: 1300px;
+  margin: auto;
+  padding-bottom: 100px;
+}
+
+.faq-section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+}
+
+.faq-item {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(16px);
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.faq-item:hover {
+  transform: translateY(-5px);
+}
+
+.faq-item h4 {
+  margin-bottom: 10px;
+  color: #856fdd;
+}
+
+.faq-item p {
+  color: #ffffff;
+  line-height: 1.8;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .support-banner h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .contact-hero {
+    padding: 70px 20px;
+  }
+
+  .contact-hero h1 {
+    font-size: 2rem;
+  }
+
+  .contact-form,
+  .help-card,
+  .info-box,
+  .faq-item {
+    padding: 20px;
+  }
+}

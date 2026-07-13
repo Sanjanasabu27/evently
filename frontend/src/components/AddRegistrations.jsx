@@ -2,11 +2,15 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useLocation } from "react-router-dom";
+import "./AddRegistration.css";
 
 function AddRegistrations() {
   const navigate = useNavigate();
 
-  const [userName, setUserName] = useState("");
+ const user = JSON.parse(localStorage.getItem("user"));
+const [userName] = useState(user.fullName);
+console.log("User from localStorage:", user);
   const [ticketCount, setTicketCount] = useState("");
   const [contact, setContact] = useState("");
   const [nameOfEvent, setNameOfEvent] = useState("");
@@ -16,18 +20,20 @@ function AddRegistrations() {
   const [seatData, setSeatData] = useState({});
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
-
+  const location = useLocation();
+   
+  const eventData = location.state;
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const registration = {
-      userName,
-      ticketCount,
-      contact,
-      nameOfEvent,
-      eventDate,
-      paymentStatus,
-    };
+  userName,
+  ticketCount,
+  contact,
+  nameOfEvent,
+  eventDate,
+  paymentStatus,
+};
 
     try {
       const response = await fetch(
@@ -53,14 +59,13 @@ if (!response.ok) {
 
 alert("Registration Added Successfully!");
 
-      setUserName("");
       setTicketCount("");
       setContact("");
       setNameOfEvent("");
       setEventDate(null);
       setPaymentStatus("Paid");
 
-      navigate("/registration");
+      navigate("/MyEvents");
     } catch (error) {
       console.error("Error:", error);
       alert("Failed to save registration");
@@ -99,27 +104,26 @@ useEffect(() => {
 console.log("Selected Event:", selectedEvent);
 console.log("Event Dates:", selectedEvent?.eventDates);
   return (
+     <div className="registration-container">
     <div className="card">
       <div style={{ padding: "20px" }}>
         <h2>Create Registration</h2>
 
-        <form onSubmit={handleSubmit}>
+        <form className="registration-form" onSubmit={handleSubmit}>
           <div>
+            <div className="form-group">
             <label>USER NAME:</label>
             <input
-              type="text"
-              placeholder="Enter Name"
-              value={userName}
-              onChange={(e) =>
-                setUserName(e.target.value)
-              }
-              required
-            />
+  type="text"
+  value={userName}
+  readOnly
+/>
           </div>
-
+          </div>
           <br />
 
           <div>
+            <div className="form-group">
             <label>TICKET COUNT:</label>
             <input
               type="number"
@@ -131,10 +135,11 @@ console.log("Event Dates:", selectedEvent?.eventDates);
               required
             />
           </div>
-
+          </div>
           <br />
 
           <div>
+            <div className="form-group">
             <label>CONTACT:</label>
             <input
               type="text"
@@ -146,20 +151,21 @@ console.log("Event Dates:", selectedEvent?.eventDates);
               required
             />
           </div>
+          </div>
 
           <br />
 
           <div>
-  <label>EVENT NAME:</label>
-
-  <select
-  value={nameOfEvent}
-  onChange={(e) => {
-  setNameOfEvent(e.target.value);
-  setEventDate(null);
-}}
-  required
-  style={{ color: "black" }}
+            <div className="form-group">
+              <label>EVENT NAME:</label>
+              <select
+                value={nameOfEvent}
+                onChange={(e) => {
+                  setNameOfEvent(e.target.value);
+                  setEventDate(null);
+                }}
+                required
+                style={{ color: "black" }}
 >
     <option value="" style={{ color: "black" }}>
       Select Event
@@ -176,10 +182,12 @@ console.log("Event Dates:", selectedEvent?.eventDates);
     ))}
   </select>
 </div>
+          </div>
 
           <br />
 
           <div>
+            <div className="form-group">
             <label>EVENT DATE:</label>
 
             <DatePicker
@@ -233,10 +241,23 @@ console.log("Event Dates:", selectedEvent?.eventDates);
 }}
               dateFormat="yyyy-MM-dd"
             />
+            {eventDate && seatData[eventDate] !== undefined && (
+
+<div className="seat-card">
+
+<h3>Available Seats</h3>
+
+<p>{seatData[eventDate]} Seats Left</p>
+
+</div>
+
+)}
+          </div>
           </div>
           <br />
 
           <div>
+            <div className="form-group">
             <label>PAYMENT STATUS:</label>
             <select
               value={paymentStatus}
@@ -249,6 +270,7 @@ console.log("Event Dates:", selectedEvent?.eventDates);
                 Not Paid
               </option>
             </select>
+          </div>
           </div>
 
           <br />
@@ -274,6 +296,7 @@ console.log("Event Dates:", selectedEvent?.eventDates);
 )}
         </form>
       </div>
+    </div>
     </div>
   );
 }

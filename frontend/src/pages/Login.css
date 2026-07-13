@@ -1,0 +1,204 @@
+.login-page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:100px 20px 40px;
+    background:transparent;
+    position:relative;
+    overflow:hidden;
+}
+
+.login-page::before{
+    content:"";
+    position:absolute;
+    width:280px;
+    height:280px;
+    background:#7b2cbf55;
+    border-radius:50%;
+    top:-80px;
+    left:-80px;
+    filter:blur(25px);
+}
+
+.login-page::after{
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    background:#4361ee30;
+    border-radius:50%;
+    right:-120px;
+    bottom:-120px;
+    filter:blur(25px);
+}
+
+/* ================= CARD ================= */
+
+.login-card{
+    width:100%;
+    max-width:400px;
+    padding:35px;
+    border-radius:20px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+    z-index:2;
+    animation:fade .6s ease;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ================= TITLE ================= */
+
+.login-card h1{
+    text-align:center;
+    font-size:30px;
+    margin-bottom:8px;
+    color:#fff;
+    font-weight:700;
+}
+
+.login-card p{
+    text-align:center;
+    color:#d7d7d7;
+    margin-bottom:28px;
+    font-size:15px;
+}
+
+/* ================= INPUTS ================= */
+
+.input-group{
+    position:relative;
+    margin-bottom:20px;
+}
+
+.input-group input{
+    width:100%;
+    padding:15px 50px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    background:rgba(255,255,255,.08);
+    color:white;
+    font-size:16px;
+    transition:.3s;
+}
+
+.input-group input::placeholder{
+    color:#cfcfcf;
+}
+
+.input-group input:focus{
+    border:1px solid #5d7eff;
+    box-shadow:0 0 12px rgba(67,97,238,.4);
+}
+
+.icon{
+    position:absolute;
+    left:16px;
+    top:16px;
+    color:#c9c9c9;
+    font-size:16px;
+}
+
+.eye{
+    position:absolute;
+    right:16px;
+    top:16px;
+    cursor:pointer;
+    color:#ddd;
+    font-size:16px;
+}
+
+/* ================= OPTIONS ================= */
+
+/* Remember Me */
+
+.login-options{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+    font-size:13px;
+    color:white;
+}
+
+.login-options label{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:400;
+    text-transform:none;
+    letter-spacing:0;
+    color:#ddd;
+}
+
+/* Smaller checkbox */
+
+.login-options input[type="checkbox"]{
+    width:14px;
+    height:14px;
+    accent-color:#7b2cbf;
+    cursor:pointer;
+}
+
+.login-options a{
+    text-decoration:none;
+    color:#77aaff;
+}
+
+.login-options a:hover{
+    text-decoration:underline;
+}
+
+/* ================= BUTTON ================= */
+
+.login-card button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    background:linear-gradient(90deg,#5a3cf0,#7b2cbf);
+    color:white;
+    transition:.3s;
+}
+
+.login-card button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(123,44,191,.45);
+}
+
+/* ================= FOOTER ================= */
+
+.bottom{
+    margin-top:22px;
+    text-align:center;
+    color:#ddd;
+    font-size:15px;
+}
+
+.bottom span{
+    color:#64a5ff;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.bottom span:hover{
+    text-decoration:underline;
+}
