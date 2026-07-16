@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useLocation } from "react-router-dom";
@@ -8,8 +8,10 @@ import "./AddRegistration.css";
 function AddRegistrations() {
   const navigate = useNavigate();
 
- const user = JSON.parse(localStorage.getItem("user"));
-const [userName] = useState(user.fullName);
+const user = JSON.parse(localStorage.getItem("user") || "null");
+
+const [userName] = useState(user?.fullName || "");
+
 console.log("User from localStorage:", user);
   const [ticketCount, setTicketCount] = useState("");
   const [contact, setContact] = useState("");
@@ -103,7 +105,53 @@ useEffect(() => {
 }, [selectedEvent]);
 console.log("Selected Event:", selectedEvent);
 console.log("Event Dates:", selectedEvent?.eventDates);
+if (!user) {
   return (
+    <div className="login-required">
+      <div className="login-card">
+
+        <div className="login-icon">
+          🎟️
+        </div>
+
+        <h1>Welcome to Evently</h1>
+
+        <h3>Login Required</h3>
+
+        <p>
+          To register for an event, you need to log in to your account.
+        </p>
+
+        <p>
+          New to Evently? Create an account in just a few seconds and start
+          exploring exciting events.
+        </p>
+
+        <div className="login-buttons">
+          <Link to="/login">
+            <button className="login-btn">
+              Login
+            </button>
+          </Link>
+
+          <Link to="/signup">
+            <button className="signup-btn">
+              Create Account
+            </button>
+          </Link>
+        </div>
+
+        <div className="back-home">
+          <Link to="/">
+            ← Back to Home
+          </Link>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+return (
      <div className="registration-container">
     <div className="card">
       <div style={{ padding: "20px" }}>
