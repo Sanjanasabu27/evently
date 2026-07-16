@@ -24,16 +24,20 @@ Add your backend URL here:
 
 
 ### 🏠 Home Page
-![Home](screenshots/home.png)
+<img width="1906" height="887" alt="image" src="https://github.com/user-attachments/assets/8d7dcb5e-c3b7-442c-be61-ee685322ca98" />
+
 
 ### 👤 User Dashboard
-![User Dashboard](screenshots/user-dashboard.png)
+<img width="1906" height="872" alt="image" src="https://github.com/user-attachments/assets/d1055093-fd22-4a97-a318-d80bd8cd00ff" />
+
 
 ### 🛠️ Admin Dashboard
-![Admin Dashboard](screenshots/admin-dashboard.png)
+<img width="1902" height="870" alt="image" src="https://github.com/user-attachments/assets/97514fac-0b8d-4f45-84eb-ae18544f406b" />
+
 
 ### 📅 Event Registration
-![Registration](screenshots/registration.png)
+<img width="1916" height="852" alt="image" src="https://github.com/user-attachments/assets/052463fd-99bb-43d1-a948-47fc0361ce8c" />
+
 
 ---
 
