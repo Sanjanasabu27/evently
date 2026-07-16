@@ -14,11 +14,11 @@ function AdminDashboard() {
 
   useEffect(() => {
 
-    fetch("http://localhost:3000/events")
+    fetch("https://evently-backend-yjtq.onrender.com/events")
       .then((res) => res.json())
       .then((data) => setEvents(data));
 
-    fetch("http://localhost:3000/registrations", {
+    fetch("https://evently-backend-yjtq.onrender.com/registrations", {
   headers: {
     Authorization: localStorage.getItem("token")
   }

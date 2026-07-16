@@ -37,7 +37,7 @@ console.log("User from localStorage:", user);
 
     try {
       const response = await fetch(
-        "http://localhost:3000/registrations",
+        "https://evently-backend-yjtq.onrender.com/registrations",
         {
           method: "POST",
           headers: {
@@ -72,7 +72,7 @@ alert("Registration Added Successfully!");
     }
   };
   useEffect(() => {
-  fetch("http://localhost:3000/events")
+  fetch("https://evently-backend-yjtq.onrender.com/events")
     .then((res) => res.json())
     .then((data) => setEvents(data))
     .catch((err) => console.log(err));
@@ -88,7 +88,7 @@ useEffect(() => {
 
     for (const d of selectedEvent.eventDates) {
       const response = await fetch(
-        `http://localhost:3000/seat-availability/${selectedEvent.eventName}/${d.date}`
+        `https://evently-backend-yjtq.onrender.com/seat-availability/${selectedEvent.eventName}/${d.date}`
       );
 
       const data = await response.json();

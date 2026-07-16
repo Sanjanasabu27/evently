@@ -4,12 +4,12 @@ function AdminSupport() {
   const [requests, setRequests] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/contact")
+    fetch("https://evently-backend-yjtq.onrender.com/contact")
       .then((res) => res.json())
       .then((data) => setRequests(data));
   }, []);
   const handleResolve = async (id) => {
-  await fetch(`http://localhost:3000/contact/resolve/${id}`, {
+  await fetch(`https://evently-backend-yjtq.onrender.com/contact/resolve/${id}`, {
     method: "PUT",
   });
 

@@ -18,7 +18,7 @@ function Profile() {
   image: defaultAvatar
 });
   useEffect(() => {
-  fetch("http://localhost:3000/profile")
+  fetch("https://evently-backend-yjtq.onrender.com/profile")
     .then(res => res.json())
     .then(data => {
       console.log("GET PROFILE:", data);
@@ -67,7 +67,7 @@ function Profile() {
   console.log("PROFILE:", profile);
 
   try {
-    const res = await fetch("http://localhost:3000/profile", {
+    const res = await fetch("https://evently-backend-yjtq.onrender.com/profile", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"

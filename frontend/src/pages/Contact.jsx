@@ -4,7 +4,7 @@ function Contact() {
     const handleSubmit = async (e) => {
   e.preventDefault();
 
-  await fetch("http://localhost:3000/contact/add", {
+  await fetch("https://evently-backend-yjtq.onrender.com/contact/add", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

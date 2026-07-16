@@ -17,7 +17,7 @@ function AdminEvents() {
   }, []);
 
   const loadEvents = () => {
-    fetch("http://localhost:3000/events")
+    fetch("https://evently-backend-yjtq.onrender.com/events")
       .then(res => res.json())
       .then(data => setEvents(data));
   };
@@ -25,7 +25,7 @@ function AdminEvents() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await fetch("http://localhost:3000/events", {
+    await fetch("https://evently-backend-yjtq.onrender.com/events", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

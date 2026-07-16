@@ -34,7 +34,7 @@ function AddEvent() {
 
   try {
     const response = await fetch(
-      "http://localhost:3000/events",
+      "https://evently-backend-yjtq.onrender.com/events",
       {
         method: "POST",
         headers: {

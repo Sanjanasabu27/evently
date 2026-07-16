@@ -8,7 +8,7 @@ function RegistrationList() {
   const [selectedId, setSelectedId] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3000/registrations")
+    fetch("https://evently-backend-yjtq.onrender.com/registrations")
       .then((res) => res.json())
       .then((data) => setRegistrations(data))
       .catch((err) => console.log(err));
@@ -40,7 +40,7 @@ function RegistrationList() {
   const handleDelete = async () => {
     try {
       await fetch(
-        `http://localhost:3000/registrations/${selectedId}`,
+        `https://evently-backend-yjtq.onrender.com/registrations/${selectedId}`,
         {
           method: "DELETE",
         }

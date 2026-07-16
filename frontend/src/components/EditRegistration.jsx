@@ -19,7 +19,7 @@ function EditRegistration() {
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
   useEffect(() => {
-    fetch(`http://localhost:3000/registrations/${id}`)
+    fetch(`https://evently-backend-yjtq.onrender.com/registrations/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setUserName(data.userName || "");

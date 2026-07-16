@@ -18,7 +18,7 @@ function EditEvent() {
 
   useEffect(() => {
 
-    fetch(`http://localhost:3000/events/${id}`)
+    fetch(`https://evently-backend-yjtq.onrender.com/events/${id}`)
       .then((res) => res.json())
       .then((data) => {
 
@@ -58,7 +58,7 @@ function EditEvent() {
     };
 
     const response = await fetch(
-      `http://localhost:3000/events/${id}`,
+      `https://evently-backend-yjtq.onrender.com/events/${id}`,
       {
         method: "PUT",
         headers: {

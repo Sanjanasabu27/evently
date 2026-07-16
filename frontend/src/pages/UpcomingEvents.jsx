@@ -8,7 +8,7 @@ function UpcomingEvents() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/events")
+    fetch("https://evently-backend-yjtq.onrender.com/events")
       .then((res) => res.json())
       .then((data) => setEvents(data))
       .catch((err) => console.log(err));

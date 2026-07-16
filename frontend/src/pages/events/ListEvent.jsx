@@ -11,7 +11,7 @@ function ListEvent() {
   const [searchTerm, setSearchTerm] = useState("");
   
   useEffect(() => {
-    fetch("http://localhost:3000/events")
+    fetch("https://evently-backend-yjtq.onrender.com/events")
       .then(res => res.json())
       .then(data => setEvents(data));
   }, []);
@@ -30,7 +30,7 @@ const handleDelete = async () => {
   try {
 
     await fetch(
-      `http://localhost:3000/events/${selectedId}`,
+      `https://evently-backend-yjtq.onrender.com/events/${selectedId}`,
       {
         method: "DELETE"
       }

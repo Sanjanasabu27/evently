@@ -16,7 +16,7 @@ function Signup() {
     e.preventDefault();
 
     const response = await fetch(
-      "http://localhost:3000/auth/signup",
+      "https://evently-backend-yjtq.onrender.com/auth/signup",
       {
         method: "POST",
         headers: {

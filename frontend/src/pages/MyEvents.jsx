@@ -18,7 +18,7 @@ function MyEvents() {
     console.log("Full Name:", user.fullName);
 
    fetch(
-  `http://localhost:3000/registrations/user/${encodeURIComponent(
+  `https://evently-backend-yjtq.onrender.com/registrations/user/${encodeURIComponent(
     user.fullName
   )}`
 )
